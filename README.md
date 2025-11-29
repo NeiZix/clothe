@@ -1,6 +1,6 @@
-# Nebula Forge – Thème Tebex
+# Horizon Ligne – Thème Tebex
 
-Feuille de style complète pour moderniser un store Tebex avec une ambiance sombre néon, des cartes vitrées et des effets subtils.
+Feuille de style pensée pour 2025 : palette neutre, typographie nette et composants modulaires inspirés du e-commerce haut de gamme (aucun effet néon / cyberpunk).
 
 ## Contenu
 - `styles/tebex-theme.css` : feuille de style principale du thème.
@@ -12,23 +12,24 @@ Feuille de style complète pour moderniser un store Tebex avec une ambiance somb
 4. Sauvegarder et vider le cache Cloudflare si activé.
 
 ## Personnalisation rapide
-Les variables définies dans `:root` contrôlent la palette et les rayons d’arrondi :
+Les variables définies dans `:root` contrôlent tout le langage visuel :
 
-- `--color-primary`, `--color-secondary`, `--color-accent` pour les dégradés principaux.
-- `--color-bg`, `--color-bg-alt`, `--color-surface` pour les fonds.
-- `--radius-*`, `--shadow-*` pour le rendu des cartes.
+- `--color-primary`, `--color-primary-hover`, `--color-accent` pour les actions.
+- `--color-bg`, `--color-bg-alt`, `--color-surface`, `--color-surface-muted` pour les fonds.
+- `--radius-*`, `--shadow-*`, `--gap-section` pour le rythme et la rondeur.
 
-Modifiez-les en haut du fichier pour ajuster le thème sans toucher au reste.
+Ajoutez ou remplacez ces variables pour ajuster le thème sans modifier les composants.
 
 ## Sections couvertes
-- Navigation sticky translucide avec effet de soulignement animé.
-- Hero/banner avec gradient animé, CTA multiples et type responsive.
-- Grille de packages avec tags, prix mis en avant et hover lumineux.
-- Modules latéraux (panier, dernières ventes, tops) avec verres dépoli.
-- Boutons primaires/secondaires, formulaires, alertes et tableaux harmonisés.
-- Animations discrètes (`floaty`) et breakpoints 1024/768/520 px.
+- Navigation sticky translucide avec badges arrondis.
+- Hero/banner minimaliste, CTA empilables et meta info.
+- Grille de packages, stat-cards, tags, badges et statuts homogènes.
+- Modules latéraux (panier, dernières ventes, tops) + checkout épuré.
+- Boutons primaires/secondaires, formulaires, alertes, tableaux et badges.
+- Breakpoints 1024/768/540 px + respect du `prefers-reduced-motion`.
 
 ## Conseils additionnels
-- Ajouter votre logo en SVG transparent pour profiter des ombres portées.
-- Utiliser l’option Tebex “Custom Background” pour uploader une image cohérente si besoin.
-- Les classes de base (`.package`, `.module`, `.cart`, `.navbar`) correspondent au markup standard du thème Tebex ; adaptez les sélecteurs si vous avez un layout personnalisé.
+- Chargez un logo clair (SVG ou PNG 2x) pour rester net sur fond blanc.
+- Conserviez des visuels produits avec fond neutre afin de garder l’ambiance premium.
+- Les sélecteurs ciblent le markup par défaut de Tebex (`.package`, `.module`, `.cart`, `.navbar`). Adaptez-les si votre thème custom renomme les blocs.
+- Combinez ce CSS avec les blocs HTML personnalisés Tebex pour injecter des timelines, FAQ ou galeries sans casser la grille.
