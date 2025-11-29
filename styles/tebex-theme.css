@@ -1,0 +1,535 @@
+/*
+  Nom du thème : Nebula Forge
+  Plateforme   : Tebex Storefront
+  Auteur       : GPT-5.1 Codex
+  Description  : Palette sombre néon avec cartes vitrées et effets subtils.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-bg: #05060a;
+  --color-bg-alt: #0f1320;
+  --color-surface: rgba(19, 25, 45, 0.85);
+  --color-surface-solid: #13192d;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-primary: #6c63ff;
+  --color-primary-hover: #8c83ff;
+  --color-secondary: #00d2ff;
+  --color-accent: #ff7676;
+  --color-success: #1dd1a1;
+  --color-warning: #feca57;
+  --color-danger: #ff6b6b;
+  --color-text: #f5f7ff;
+  --color-text-muted: rgba(245, 247, 255, 0.65);
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.2rem;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 25px 45px rgba(5, 6, 10, 0.55);
+  --blur: 18px;
+  --transition: 200ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(108, 99, 255, 0.15), transparent 55%),
+    radial-gradient(circle at 20% 20%, rgba(0, 210, 255, 0.12), transparent 45%),
+    var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.tebex-wrapper,
+.wrapper,
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+/* Navigation */
+.navbar,
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(120deg, rgba(6, 8, 20, 0.95), rgba(11, 14, 30, 0.8));
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-inner,
+header.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.navbar-logo img,
+.logo img {
+  height: 42px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.35));
+}
+
+.navbar-menu,
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link,
+nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-link::after,
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.1rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  transition: width 180ms ease;
+}
+
+.nav-link:hover,
+nav a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link:hover::after,
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero,
+.banner,
+.featured {
+  margin-top: 2rem;
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.35), rgba(0, 210, 255, 0.25));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.hero-title,
+.banner h1 {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle,
+.banner p {
+  color: var(--color-text-muted);
+  max-width: 50ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* Boutons */
+.btn,
+button,
+input[type="submit"],
+.package .button.buy,
+.purchase-button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: transform var(--transition), box-shadow var(--transition);
+  background: linear-gradient(120deg, var(--color-secondary), var(--color-primary));
+  color: var(--color-bg);
+  box-shadow: 0 10px 25px rgba(108, 99, 255, 0.35);
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+.package .button.buy:hover,
+.purchase-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.35);
+}
+
+.btn.secondary,
+.button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+/* Cartes de packages */
+.package-grid,
+.packages,
+.featured-packages {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.package,
+.package-card,
+.module-package {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.package::after,
+.package-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(108, 99, 255, 0.12), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.package:hover::after,
+.package-card:hover::after {
+  opacity: 1;
+}
+
+.package h3,
+.package-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.package .tag,
+.package-card .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.package .price,
+.package-card .price {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.package ul,
+.package-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.package ul li,
+.package-card ul li {
+  padding: 0.35rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.package ul li::before,
+.package-card ul li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: 0.55rem;
+  border-radius: 50%;
+  background: linear-gradient(120deg, var(--color-secondary), var(--color-primary));
+}
+
+/* Modules latéraux */
+.module,
+.sidebar-module,
+.widget {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.module h4,
+.widget h4 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.module li,
+.widget li {
+  list-style: none;
+  margin: 0.4rem 0;
+}
+
+/* Panier et modules d'achat */
+.cart,
+.basket,
+.checkout {
+  background: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-strong);
+}
+
+.cart-item,
+.basket-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cart-total,
+.basket-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Entrées de formulaire */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--color-text);
+  transition: border var(--transition), box-shadow var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.25);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+/* Messages */
+.alert,
+.notice,
+.system-message {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.alert.success {
+  background: rgba(29, 209, 161, 0.12);
+  color: var(--color-success);
+}
+
+.alert.warning {
+  background: rgba(254, 202, 87, 0.12);
+  color: var(--color-warning);
+}
+
+.alert.error {
+  background: rgba(255, 107, 107, 0.12);
+  color: var(--color-danger);
+}
+
+/* Tableaux */
+table {
+  width: 100%;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+table thead {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Comptes à rebours / badges */
+.badge,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(120deg, var(--color-accent), var(--color-primary));
+}
+
+.countdown {
+  display: flex;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.countdown span {
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Animations légères */
+@keyframes floaty {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+.package-card:hover,
+.hero:hover {
+  animation: floaty 2.4s ease-in-out infinite alternate;
+}
+
+/* Pied de page */
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+footer a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .navbar-inner {
+    flex-direction: column;
+  }
+
+  .hero,
+  .packages,
+  .cart {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu,
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
+
+  .package-grid,
+  .packages {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .hero,
+  .banner {
+    padding: 1.5rem;
+  }
+
+  .package,
+  .module,
+  .cart {
+    padding: 1.25rem;
+  }
+
+  .nav-link,
+  nav a {
+    padding: 0.35rem 0.5rem;
+  }
+}
